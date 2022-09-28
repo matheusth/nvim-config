@@ -1,7 +1,10 @@
+local rt = require("rust-tools")
+local lspconfig = require('lspconfig')
+local completion = require('cmp')
+
 local extension_path = vim.env.HOME .. '/.local/share/nvim/mason/packages/codelldb/extension/'
 local codelldb_path = extension_path .. 'adapter/codelldb'
 local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
-local rt = require("rust-tools")
 
 rt.setup({
   server = {
@@ -19,6 +22,12 @@ rt.setup({
 
     }
 })
+
+lspconfig.jedi_language_server.setup{on_attach=(function() 
+	vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+end),
+capabilities=require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
 
 
 
