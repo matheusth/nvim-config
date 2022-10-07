@@ -1,7 +1,9 @@
 vim.g.mapleader=';'
 
+rusttools = require'rust-tools'
+
 function noremap(mode, lhs, rhs)
-	vim.keymap.set('n', lhs, rhs, {silent = true, noremap = true })
+	vim.keymap.set(mode, lhs, rhs, {silent = true, noremap = true })
 end
 
 noremap('n', '<F2>', "<cmd> NvimTreeToggle <cr>")
