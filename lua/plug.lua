@@ -36,4 +36,5 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/vim-vsnip'
 
 	use 'petobens/poet-v'
+	use 'andweeb/presence.nvim'
 end)
