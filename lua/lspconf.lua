@@ -14,6 +14,7 @@ rt.setup({
       -- Code action groups
       vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
 	vim.keymap.set("n", "<Leader>ft", vim.lsp.buf.formatting, {buffer = bufnr})
+	vim.keymap.set("n", "<Leader>gd", vim.lsp.buf.definition, {buffer = bufnr})
 	require('lsp-format').on_attach(client)
     end,
   },
@@ -29,6 +30,8 @@ lspconfig.jedi_language_server.setup{on_attach=(function()
 end),
 capabilities=require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
+
+lspconfig.jdtls.setup{}
 
 
 
