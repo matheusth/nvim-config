@@ -1,7 +1,13 @@
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local jdtls = require('jdtls');
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
-local workspace = '/home/matheus/projetos/java' .. project_name
+local workspace = '~/projetos/java' .. project_name
+local home = os.getenv("HOME")
+local jdtls_basedir = home .. '/.local/bin/jdtls/'
+
+vim.o.shiftwidth = 4
+vim.o.tabstop = 4
+
 local config = {
   -- The command that starts the language server
   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
@@ -22,14 +28,14 @@ local config = {
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
 
     -- 💀
-    '-jar', '/home/matheus/.local/bin/jdtls/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+    '-jar', jdtls_basedir .. 'plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
          -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
          -- Must point to the                                                     Change this to
          -- eclipse.jdt.ls installation                                           the actual version
 
 
     -- 💀
-    '-configuration', '/home/matheus/.local/bin/jdtls/config_linux',
+    '-configuration', jdtls_basedir .. 'config_linux',
                     -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
                     -- Must point to the                      Change to one of `linux`, `win` or `mac`
                     -- eclipse.jdt.ls installation            Depending on your system.
@@ -67,9 +73,11 @@ local config = {
 	  local opts = {silent = true, buffer = bufnr}
 	  vim.keymap.set('n', '<A-o>', jdtls.organize_imports , opts)
 	  vim.keymap.set('v', 'crm', [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]], opts)
+	  vim.keymap.set('n', '<Leader>ft', vim.lsp.buf.formatting, {buffer = bufnr})
   end
 }
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
+
 jdtls.start_or_attach(config)
 
