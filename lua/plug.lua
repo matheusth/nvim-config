@@ -38,4 +38,14 @@ return require('packer').startup(function(use)
 	use 'petobens/poet-v'
 	use 'andweeb/presence.nvim'
 	use 'mfussenegger/nvim-jdtls'
+	use({'jakewvincent/mkdnflow.nvim',
+	    rocks = 'luautf8', -- Ensures optional luautf8 dependency is installed
+	    config = function()
+		require('mkdnflow').setup({})
+	    end
+	})
+	use({
+	    "iamcco/markdown-preview.nvim",
+	    run = function() vim.fn["mkdp#util#install"]() end,
+	})
 end)
