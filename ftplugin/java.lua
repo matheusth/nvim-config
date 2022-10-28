@@ -1,8 +1,8 @@
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local jdtls = require('jdtls');
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
-local workspace = '~/projetos/java' .. project_name
 local home = os.getenv("HOME")
+local workspace = home .. '/projetos/java' .. project_name
 local jdtls_basedir = home .. '/.local/bin/jdtls/'
 
 vim.o.shiftwidth = 4
