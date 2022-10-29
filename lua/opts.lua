@@ -6,10 +6,10 @@ vim.wo.foldmethod='expr'
 vim.wo.foldlevel=99
 vim.wo.foldexpr='nvim_treesitter#foldexpr()'
 
-vim.g.expandtab=true
-vim.g.shitftwidth=4
-vim.g.tabstop=4
-vim.g.title=true
+vim.o.expandtab=true
+vim.o.shiftwidth=4
+vim.o.tabstop=4
+vim.o.title=true
 
 -- Better Netrw
 vim.g.netrw_banner = 0;
