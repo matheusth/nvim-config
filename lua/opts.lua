@@ -1,5 +1,6 @@
 vim.wo.relativenumber=true
 vim.wo.number=true
+vim.g.python3_host_prog="/usr/bin/python3"
 vim.g.poetv_auto_activate = 1
 
 vim.wo.foldmethod='expr'
