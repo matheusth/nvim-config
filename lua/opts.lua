@@ -19,4 +19,7 @@ vim.g.netrw_altv = 1;
 vim.g.netrw_liststyle = 3
 vim.g.netrw_list_hide = (vim.fn["netrw_gitignore#Hide"]()) .. [[,\(^\|\s\s\)\zs\.\S\+]]
 
+-- Emmet config
+vim.g.user_emmet_leader_key='<C-Z>'
+
 vim.cmd [[colorscheme tokyonight-night]]
