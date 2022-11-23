@@ -37,7 +37,12 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 lspconfig.html.setup{
     capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
-
+lspconfig.cmake.setup{
+    capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
+lspconfig.clangd.setup{
+    capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
 
 
 
