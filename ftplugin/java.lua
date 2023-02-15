@@ -3,7 +3,7 @@ local jdtls = require('jdtls');
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local home = os.getenv("HOME")
 local workspace = home .. '/projetos/java' .. project_name
-local jdtls_basedir = home .. '/.local/bin/jdtls/'
+local jdtls_basedir = home .. '/.local/share/nvim/mason/packages/jdtls/'
 
 vim.o.shiftwidth = 4
 vim.o.tabstop = 4

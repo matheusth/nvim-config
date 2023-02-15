@@ -49,4 +49,13 @@ return require('packer').startup(function(use)
 	    "iamcco/markdown-preview.nvim",
 	    run = function() vim.fn["mkdp#util#install"]() end,
 	})
+    use {
+  "zbirenbaum/copilot-cmp",
+  after = { "copilot.lua" },
+  config = function ()
+    require("copilot_cmp").setup()
+  end
+}
+use { "zbirenbaum/copilot.lua" }
+
 end)
