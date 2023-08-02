@@ -95,7 +95,3 @@ require('nvim-treesitter.configs').setup {
     max_file_lines = nil,
   }
   }
-require('copilot').setup({
-    suggestion = {enabled = false},
-    panel = {enabled = false},
-})
