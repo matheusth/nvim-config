@@ -25,7 +25,7 @@ rt.setup({
     }
 })
 
-lspconfig.jedi_language_server.setup{on_attach=(function(client, bufnr) 
+lspconfig.pyright.setup{on_attach=(function(client, bufnr) 
 	vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 	vim.keymap.set("n", "<Leader>ft", vim.lsp.buf.formatting, {buffer = bufnr})
 	vim.keymap.set("n", "<Leader>gd", vim.lsp.buf.definition, {buffer = bufnr})
