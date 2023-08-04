@@ -28,7 +28,7 @@ local config = {
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
 
     -- 💀
-    '-jar', jdtls_basedir .. 'plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+    '-jar', jdtls_basedir .. 'plugins/org.eclipse.equinox.launcher_1.6.500.v20230622-2056.jar',
          -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
          -- Must point to the                                                     Change this to
          -- eclipse.jdt.ls installation                                           the actual version
@@ -73,7 +73,7 @@ local config = {
 	  local opts = {silent = true, buffer = bufnr}
 	  vim.keymap.set('n', '<A-o>', jdtls.organize_imports , opts)
 	  vim.keymap.set('v', 'crm', [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]], opts)
-	  vim.keymap.set('n', '<Leader>ft', vim.lsp.buf.formatting, {buffer = bufnr})
+	  vim.keymap.set('n', '<leader>ft', vim.lsp.buf.formatting(), {buffer = bufnr})
   end
 }
 -- This starts a new client & server,
