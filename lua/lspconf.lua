@@ -1,39 +1,8 @@
 local lspconfig = require('lspconfig')
 local completion = require('cmp')
 
-
-lspconfig.pyright.setup{on_attach=(function(client, bufnr) 
-	vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-	vim.keymap.set("n", "<Leader>ft", vim.lsp.buf.formatting, {buffer = bufnr})
-	vim.keymap.set("n", "<Leader>gd", vim.lsp.buf.definition, {buffer = bufnr})
-end),
-capabilities=require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-}
-
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-lspconfig.cssls.setup{
-    capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-}
-lspconfig.html.setup{
-    capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-}
-lspconfig.emmet_ls.setup{
-    capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-}
-lspconfig.tsserver.setup{
-    capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-}
-lspconfig.cmake.setup{
-    capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-}
-lspconfig.clangd.setup{
-    capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-}
-
-
-
 --Set completeopt to have a better completion experience
 -- :help completeopt
 -- menuone: popup even when there's only one match
