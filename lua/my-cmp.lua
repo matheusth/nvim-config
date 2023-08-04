@@ -1,10 +1,12 @@
 -- Completion Plugin Setup
 local cmp = require'cmp'
+local luasnip = require'luasnip'
+
 cmp.setup({
   -- Enable LSP snippets
   snippet = {
     expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body)
+        luasnip.lsp_expand(args.body) -- For luasnip users
     end,
   },
   mapping = {
@@ -29,7 +31,7 @@ cmp.setup({
     { name = 'nvim_lsp_signature_help'},            -- display function signatures with current parameter emphasized
     { name = 'nvim_lua', keyword_length = 2},       -- complete neovim's Lua runtime API such vim.lsp.*
     { name = 'buffer', keyword_length = 2 },        -- source current buffer
-    { name = 'vsnip', keyword_length = 2 },         -- nvim-cmp source for vim-vsnip 
+    { name = 'luasnip'},
     { name = 'calc'},                               -- source for math calculation
     { name = 'jdtls'},
   },

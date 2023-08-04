@@ -1,4 +1,5 @@
 require('keys')
+require('luasnipconfig')
 require('line')
 require('opts')
 require('plug')
