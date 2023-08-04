@@ -21,5 +21,8 @@ vim.g.netrw_list_hide = (vim.fn["netrw_gitignore#Hide"]()) .. [[,\(^\|\s\s\)\zs\
 
 -- Emmet config
 vim.g.user_emmet_leader_key='<C-Z>'
+require('lualine').setup {
+    theme = 'catppuccin'
+}
 
-vim.cmd [[colorscheme tokyonight-night]]
+vim.cmd [[colorscheme catppuccin]]
