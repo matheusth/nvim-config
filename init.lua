@@ -1,4 +1,5 @@
 require('keys')
+require('teleconfig')
 require('luasnipconfig')
 require('line')
 require('opts')
