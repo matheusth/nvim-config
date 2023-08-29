@@ -16,7 +16,7 @@ local features = {
 
     -- change this to `true` if you have `nvim-dap`,
     -- `java-test` and `java-debug-adapter` installed
-    debugger = false,
+    debugger = true,
 }
 
 local function get_jdtls_paths()
@@ -97,8 +97,37 @@ local function get_jdtls_paths()
     return path
 end
 
+local function enable_codelens(bufnr)
+    pcall(vim.lsp.codelens.refresh)
+
+    vim.api.nvim_create_autocmd('BufWritePost', {
+        buffer = bufnr,
+        group = java_cmds,
+        desc = 'refresh codelens',
+        callback = function()
+            pcall(vim.lsp.codelens.refresh)
+        end,
+    })
+end
+
+local function enable_debugger(bufnr)
+    require('jdtls').setup_dap({ hotcodereplace = 'auto' })
+    require('jdtls.dap').setup_dap_main_class_configs()
+
+    local opts = { buffer = bufnr }
+    vim.keymap.set('n', '<leader>df', "<cmd>lua require('jdtls').test_class()<cr>", opts)
+    vim.keymap.set('n', '<leader>dn', "<cmd>lua require('jdtls').test_nearest_method()<cr>", opts)
+end
+
 local function jdtls_on_attach(client, bufnr)
     local opts = { buffer = bufnr }
+    if features.debugger then
+        enable_debugger(bufnr)
+    end
+
+    if features.codelens then
+        enable_codelens(bufnr)
+    end
     vim.keymap.set('n', '<A-o>', "<cmd>lua require('jdtls').organize_imports()<cr>", opts)
     vim.keymap.set('n', 'crv', "<cmd>lua require('jdtls').extract_variable()<cr>", opts)
     vim.keymap.set('x', 'crv', "<esc><cmd>lua require('jdtls').extract_variable(true)<cr>", opts)
@@ -238,23 +267,6 @@ local function jdtls_setup(event)
             bundles = path.bundles,
         },
     })
-end
-
-vim.api.nvim_create_autocmd('FileType', {
-    group = java_cmds,
-    pattern = { 'java' },
-    desc = 'Setup jdtls',
-    callback = jdtls_setup,
-})
-local function jdtls_setup()
-    local jdtls = require('jdtls')
-
-    local config = {
-        cmd = {},
-        root_dir = jdtls.setup.find_root(root_files),
-        on_attach = jdtls_on_attach(),
-    }
-    jdtls.start_or_attach(config)
 end
 
 vim.api.nvim_create_autocmd('FileType', {
