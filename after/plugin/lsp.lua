@@ -33,6 +33,8 @@ end)
 -- (Optional) Configure lua language server for neovim
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
+lsp.skip_server_setup({'jdtls'});
+
 lsp.setup()
 
 require('luasnip.loaders.from_vscode').lazy_load()
@@ -44,6 +46,7 @@ cmp.setup({
     {name = 'luasnip'},
   },
   mapping = {
+    ['<C-k>'] = cmp.mapping.complete(),
     ['<C-v>'] = cmp_action.luasnip_jump_forward(),
     ['<C-b>'] = cmp_action.luasnip_jump_backward(),
   }

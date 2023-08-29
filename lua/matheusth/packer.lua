@@ -6,6 +6,7 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
+    use 'mfussenegger/nvim-jdtls'
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.2',
@@ -41,4 +42,5 @@ return require('packer').startup(function(use)
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
+    use 'mfussenegger/nvim-dap'
 end)
