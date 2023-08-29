@@ -13,3 +13,7 @@ vim.keymap.set("n", "<leader>rf", function()
     vim.lsp.buf.rename()
     vim.cmd('silent! wa')
 end)
+
+vim.keymap.set("n", "<leader>q", [[:bp<CR>]])
+vim.keymap.set("n", "<leader>e", [[:bn<CR>]])
+
