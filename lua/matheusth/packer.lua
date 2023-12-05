@@ -51,4 +51,5 @@ return require('packer').startup(function(use)
         ft = { "markdown" },
     })
     use 'vimwiki/vimwiki'
+    use 'lervag/vimtex'
 end)
