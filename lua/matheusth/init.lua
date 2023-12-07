@@ -1,2 +1,3 @@
-require("matheusth.remap")
-require("matheusth.set")
+require('matheusth.opt')
+require('matheusth.keymaps')
+require('matheusth.packer')
