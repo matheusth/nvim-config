@@ -1,5 +1,7 @@
 -- Bultin lsp
 
+-- Set up lspconfig.
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local on_attach = (function()
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = 0 })
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = 0 })
@@ -12,7 +14,8 @@ local on_attach = (function()
 end)
 
 require 'lspconfig'.gopls.setup {
-    on_attach = on_attach
+    on_attach = on_attach,
+    capabilities = capabilities
 }
 
 require 'lspconfig'.lua_ls.setup {
@@ -43,5 +46,7 @@ require 'lspconfig'.lua_ls.setup {
             client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
         end
         return true
-    end
+    end,
+    on_attach = on_attach,
+    capabilities = capabilities
 }
