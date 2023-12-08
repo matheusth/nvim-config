@@ -13,6 +13,7 @@ local on_attach = (function()
     vim.keymap.set('n', '<leader>vca', vim.lsp.buf.code_action, { buffer = 0 })
 end)
 
+-- (Optional) Configure lua language server for neovim
 require 'lspconfig'.gopls.setup {
     on_attach = on_attach,
     capabilities = capabilities
