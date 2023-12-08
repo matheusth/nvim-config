@@ -34,4 +34,7 @@ return require('packer').startup(function(use)
     use 'nvim-telescope/telescope-dap.nvim'
     use 'theHamsta/nvim-dap-virtual-text'
     use 'leoluz/nvim-dap-go'
+    use {
+        "williamboman/mason.nvim"
+    }
 end)
