@@ -15,7 +15,13 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 require("catppuccin").setup({
-    flavour = "mocha"
+    flavour = "mocha",
+    integrations = {
+        cmp=true,
+        gitsigns=true,
+        nvimtree=true,
+        treesitter=true,
+    }
 })
 
 vim.cmd.colorscheme "catppuccin"
