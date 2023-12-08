@@ -1,3 +1,4 @@
+
 local home = os.getenv('HOME');
 local jdtls_root_dir = home .. '/.local/share/jdt-language-server'
 local root_makers = { 'gradlew', 'mvnw', '.git' }
@@ -72,6 +73,6 @@ local config = {
 }
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
-return {
+return function ()
     require('jdtls').start_or_attach(config)
-}
+end
