@@ -1,2 +1,2 @@
-require('matheus.lazy')
 require('matheus.vim-opts')
+require('matheus.lazy')
