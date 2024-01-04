@@ -26,6 +26,7 @@ return {
 			end
 		}
     lspconfig.clangd.setup{}
+    lspconfig.cmake.setup{}
 		vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
 	end
 }
