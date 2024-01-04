@@ -7,7 +7,7 @@ return {
 	config = function()
 		require('mason').setup()
 		require('mason-lspconfig').setup({
-			ensure_installed = {"tsserver", "lua-language-server", "clangd"}
+			ensure_installed = {"tsserver", "lua_ls", "clangd"}
 		})
 	end
 }
