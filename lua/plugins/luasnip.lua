@@ -16,11 +16,6 @@ return {
         ls.add_snippets("all", {
             s("lorem", fmt("lorem ipsum dolor sit ammet {}.", { i(0) }))
         })
-        ls.add_snippets("java", {
-            s("pbc", fmt("public class {} {{\n{}\n}}", { vim.fn.expand("%:r"), i(1)})),
-            s("psvm", fmt("public static void main(String[] args){{\n{}\n}}", {i(0)})),
-            s("sysout", fmt("System.out.println(\"{}\");", {i(0)})),
-        })
     end,
     dependencies = { "rafamadriz/friendly-snippets" },
 }
