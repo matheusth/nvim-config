@@ -3,8 +3,6 @@ return {
 	config = function()
 		local lspconfig = require('lspconfig');
 		lspconfig.tsserver.setup {}
-		lspconfig.cmake.setup {}
-		lspconfig.clangd.setup {}
     lspconfig.gopls.setup {}
 		lspconfig.lua_ls.setup {
 			on_init = function(client)
