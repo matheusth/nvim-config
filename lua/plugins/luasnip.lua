@@ -8,7 +8,7 @@ return {
         local ls = require("luasnip")
         local s = ls.snippet
         local i = ls.insert_node
-        require("luasnip.loaders.from_vscode").lazy_load()
+        require("luasnip.loaders.from_vscode").lazy_load({})
         local fmt = require "luasnip.extras.fmt".fmt
         vim.keymap.set({ "i" }, "<c-k>", function() ls.expand() end, { silent = true })
         vim.keymap.set({ "i", "s" }, "<C-L>", function() ls.jump(1) end, { silent = true })
