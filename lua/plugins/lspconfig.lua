@@ -33,9 +33,6 @@ return {
         lspconfig.cmake.setup({
             capabilities = capabilities
         })
-        lspconfig.rust_analyzer.setup({
-            capabilities = capabilities
-        })
         vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
     end,
 }
