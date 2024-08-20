@@ -36,6 +36,13 @@ return {
         lspconfig.jedi_language_server.setup({
             capabilities = capabilities
         })
+        lspconfig.dockerls.setup({
+            capabilities = capabilities
+        })
+        lspconfig.docker_compose_language_service.setup({
+            capabilities = capabilities,
+            filetypes = { "docker-compose.yml "}
+        })
         vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
     end,
 }
