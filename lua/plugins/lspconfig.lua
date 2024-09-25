@@ -3,7 +3,7 @@ return {
     config = function()
         local lspconfig = require("lspconfig")
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
-        lspconfig.tsserver.setup({})
+        lspconfig.ts_ls.setup({})
         lspconfig.gopls.setup({})
         lspconfig.lua_ls.setup({
             on_init = function(client)

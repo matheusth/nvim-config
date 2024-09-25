@@ -7,5 +7,8 @@ return {
 		vim.keymap.set("n", "<leader>xe", function()
 			vim.cmd.RustLsp("explainError")
 		end, { silent = true, buffer = bufnr })
+        vim.keymap.set("n", "<leader>dg", function ()
+            vim.cmd.RustLsp('debug')
+        end)
 	end,
 }
