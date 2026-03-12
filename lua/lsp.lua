@@ -8,6 +8,7 @@ vim.lsp.config("*", {
     },
     root_markers = { ".git" },
 })
+
 vim.lsp.config("ts_ls", {
     cmd = { "typescript-language-server", "--stdio" },
     filetypes = { "typescript", "javascript" },
