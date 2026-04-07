@@ -11,5 +11,5 @@ vim.lsp.config("*", {
 
 vim.lsp.config("ts_ls", {
     cmd = { "typescript-language-server", "--stdio" },
-    filetypes = { "typescript", "javascript" },
+    filetypes = { "typescript", "javascript", "json", "jsonc" },
 })

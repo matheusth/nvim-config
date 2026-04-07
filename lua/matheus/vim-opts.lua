@@ -13,9 +13,6 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.breakindent = true
 
--- set clipboard
-vim.o.clipboard = "unnamedplus"
-
 -- netrw config
 vim.g.netrw_keepdir = 0
 vim.g.netrw_banner = 0
