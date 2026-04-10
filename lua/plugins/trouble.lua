@@ -10,7 +10,7 @@ return {
 			require("trouble").toggle("lsp_references")
 		end)
 		vim.keymap.set("n", "<leader>xd", function()
-			require("trouble").toggle("document_diagnostics")
+			require("trouble").toggle("diagnostics")
 		end)
 		vim.keymap.set("n", "<leader>xq", function()
 			require("trouble").toggle("quickfix")
