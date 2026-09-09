@@ -15,9 +15,9 @@ vim.lsp.config("ts_ls", {
 })
 
 vim.lsp.config("ruff", {
-    cmd = {"ruff", "server", "--preview"},
-    filetypes = {"python"},
-    root_markers = {"pyproject.toml", ".git"},
+    cmd = { "ruff", "server", "--preview" },
+    filetypes = { "python" },
+    root_markers = { "pyproject.toml", ".git" },
 })
 
-vim.lsp.enable({"ruff", "ts_ls"})
+vim.lsp.enable({ "ruff", "ts_ls", "emmet-ls", "html", "cssls" })
